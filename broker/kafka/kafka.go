@@ -633,6 +633,7 @@ func (b *kafkaBroker) Subscribe(topic string, handler broker.Handler, binder bro
 					Body:      nil,
 					Partition: msg.Partition,
 					Offset:    msg.Offset,
+					Msg:       msg,
 				}
 
 				p := &publication{topic: msg.Topic, reader: sub.reader, m: m, km: msg, ctx: options.Context}
